@@ -18,7 +18,7 @@ module.exports = (sequielize, DataTypes) => {
       },
     },
     {
-      tableName: "valoresVisits",
+      tableName: "visits",
       timestamps: true,
     }
   );

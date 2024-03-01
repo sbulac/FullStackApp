@@ -1,5 +1,6 @@
 module.exports = (sequielize, DataTypes) => {
   const User = sequielize.define(
+    "User",
     {
       id: {
         type: DataTypes.BIGINT(20),
@@ -29,16 +30,13 @@ module.exports = (sequielize, DataTypes) => {
       },
     },
     {
-      tableName: "Usuarios",
+      tableName: "user",
       timeStamp: false,
     }
   );
 
   User.associate = (models) => {
-    User.hasMany(models.Visits, {
-      foreingKey: "id_users",
-      as: "userVisits",
-    });
+    User.belongsToMany(models.Canal, { trhough: "Subscripcion" });
   };
 
   return User;
